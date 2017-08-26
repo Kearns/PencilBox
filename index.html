@@ -6,23 +6,39 @@
         .cp-normal {
             float: right !important;
         }
-        canvas:hover {
-            cursor: crosshair;
+
+        .input {
+            display: inline-block;
+        }
+
+        .input h1 {
+            margin: 0;
+            padding: 5px;
+            background: #333;
+            color: #eee;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
         }
 
         canvas {
             border: 1px solid #333;
             border-bottom: 4px solid #000;
         }
+        
+        canvas:hover {
+            cursor: crosshair;
+        }
+
     </style>
 </head>
 <body>
-    <section>
-        <h1>SIGN HERE:</h1>
-        <div id="stroke-color-picker" class="cp-normal"></div>
+    <div id="stroke-color-picker" class="cp-normal"></div>
+
+    <section class="input">
+        <h1>SIGN HERE</h1>    
         <canvas id='canvas' width='640' height='240'></canvas>
     </section>
-    <section>
+    <section class="output">
         <h2>OUTPUT:</h2>
         <img  id='output' src='' width='640' height='240' />
     </section>
