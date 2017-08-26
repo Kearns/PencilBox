@@ -9,17 +9,22 @@
         canvas:hover {
             cursor: crosshair;
         }
+
+        canvas {
+            border: 1px solid #333;
+            border-bottom: 4px solid #000;
+        }
     </style>
 </head>
 <body>
     <section>
-        <h1>DRAW:</h1>
+        <h1>SIGN HERE:</h1>
         <div id="stroke-color-picker" class="cp-normal"></div>
-        <canvas id='canvas' width='640' height='480'></canvas>
+        <canvas id='canvas' width='640' height='240'></canvas>
     </section>
     <section>
         <h2>OUTPUT:</h2>
-        <img  id='output' src='' width='640' height='480' />
+        <img  id='output' src='' width='640' height='240' />
     </section>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
