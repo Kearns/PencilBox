@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="styles/themes.css" />
+
+    <style>
+        .cp-normal {
+            float: right !important;
+        }
+        canvas:hover {
+            cursor: crosshair;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>DRAW:</h1>
+        <div id="stroke-color-picker" class="cp-normal"></div>
+        <canvas id='canvas' width='640' height='480'></canvas>
+    </section>
+    <section>
+        <h2>OUTPUT:</h2>
+        <img  id='output' src='' width='640' height='480' />
+    </section>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="scripts/colorpicker.min.js"></script>
+    <script type="text/javascript" src="lib/PencilBox.js"></script>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const output = document.getElementById('output');
+        const pencilBox = PencilBox(canvas);
+
+        ColorPicker(
+            document.getElementById('stroke-color-picker'), 
+            (hex, hsv, rgb) => pencilBox.ctx.strokeStyle = hex
+        );
+
+        ['mouseup','mouseleave'].forEach(eventType => {
+            canvas.addEventListener(
+                eventType,  
+                e => pencilBox.onDrawEnd(e, _ => output.src = canvas.toDataURL('image/png') ),  
+                false
+            )
+        })
+    </script>
+</body>
+</html>
