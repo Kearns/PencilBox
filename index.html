@@ -56,7 +56,7 @@
             (hex, hsv, rgb) => pencilBox.ctx.strokeStyle = hex
         );
 
-        ['mouseup','mouseleave'].forEach(eventType => {
+        ['mouseup','mouseleave','touchend'].forEach(eventType => {
             canvas.addEventListener(
                 eventType,  
                 e => pencilBox.onDrawEnd(e, _ => output.src = canvas.toDataURL('image/png') ),  
