@@ -15,13 +15,7 @@ export function pen() {
     let velocity = this.settings.velocity;
     let ctx = this.ctx;
 
-    ctx.lineWidth = lineWidth / (velocity * .5);
-
-    if (ctx.lineWidth > lineWidth) {
-        ctx.lineWidth = lineWidth;
-    } else if (ctx.lineWidth < lineWidth / 5) {
-        ctx.lineWidth = lineWidth / 5;
-    }
+    ctx.lineWidth = lineWidth + (velocity * .5);
 
     ctx.beginPath();
 
